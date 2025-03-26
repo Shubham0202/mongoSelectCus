@@ -17,7 +17,15 @@ async function fetchCustomers() {
     const db = client.db(dbName);
     const collection = db.collection(collectionName);
 
-  
+    const cust = [
+      { name: 'John Doe', age: 20, grade: 'A' },
+      { name: 'Jane Smith', age: 22, grade: 'B' },
+      { name: 'Emily Johnson', age: 21, grade: 'A' }
+  ];
+
+
+  const result = await collection.insertMany(cust);
+  // console.log('Records inserted:', result);
     const customers = await collection.find({}).toArray();
 
   
